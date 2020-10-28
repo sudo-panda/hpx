@@ -11,6 +11,7 @@
 #pragma once
 
 #include <hpx/config.hpp>
+#include <hpx/actions/traits/action_continuation.hpp>
 
 #if defined(HPX_HAVE_NETWORKING) && !defined(HPX_COMPUTE_DEVICE_CODE)
 #include <hpx/actions/actions_fwd.hpp>

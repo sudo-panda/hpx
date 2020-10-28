@@ -11,8 +11,8 @@
 #include <hpx/config.hpp>
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
 #include <hpx/actions/actions_fwd.hpp>
+#include <hpx/actions/continuation_fwd.hpp>
 #include <hpx/actions_base/action_priority.hpp>
-#include <hpx/actions_base/continuation_fwd.hpp>
 #include <hpx/assert.hpp>
 #include <hpx/async_distributed/applier/detail/apply_implementations_fwd.hpp>
 #include <hpx/components_base/component_type.hpp>

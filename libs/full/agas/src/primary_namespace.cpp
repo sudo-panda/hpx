@@ -7,7 +7,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <hpx/config.hpp>
+
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
+#include <hpx/actions/continuation.hpp>
 #include <hpx/agas/primary_namespace.hpp>
 #include <hpx/agas/server/primary_namespace.hpp>
 #include <hpx/assert.hpp>
@@ -15,7 +17,6 @@
 #include <hpx/lcos/base_lco_with_value.hpp>
 #include <hpx/modules/async_distributed.hpp>
 #include <hpx/modules/errors.hpp>
-#include <hpx/runtime/actions/continuation.hpp>
 #include <hpx/runtime/components/component_factory.hpp>
 #include <hpx/serialization/vector.hpp>
 
@@ -318,4 +319,5 @@ namespace hpx { namespace agas {
         server_->unregister_server_instance(ec);
     }
 }}    // namespace hpx::agas
+
 #endif

@@ -9,6 +9,6 @@
 #include <hpx/config.hpp>
 
 #if defined(HPX_HAVE_DISTRIBUTED_RUNTIME) && !defined(HPX_COMPUTE_DEVICE_CODE)
+#include <hpx/actions/continuation.hpp>
 #include <hpx/actions_base/plain_action.hpp>
-#include <hpx/runtime/actions/continuation.hpp>
 #endif

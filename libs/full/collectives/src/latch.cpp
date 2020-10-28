@@ -5,7 +5,9 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <hpx/config.hpp>
+
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
+#include <hpx/actions/continuation.hpp>
 #include <hpx/actions/transfer_action.hpp>
 #include <hpx/actions/transfer_continuation_action.hpp>
 #include <hpx/actions_base/detail/action_factory.hpp>
@@ -14,7 +16,6 @@
 #include <hpx/futures/future.hpp>
 #include <hpx/modules/async_distributed.hpp>
 #include <hpx/performance_counters/counters.hpp>
-#include <hpx/runtime/actions/continuation.hpp>
 #include <hpx/runtime/components/client_base.hpp>
 #include <hpx/runtime/components/derived_component_factory.hpp>
 #include <hpx/runtime/components/new.hpp>
@@ -81,4 +82,5 @@ HPX_REGISTER_ACTION_ID(hpx::lcos::server::latch::wait_action,
 HPX_REGISTER_BASE_LCO_WITH_VALUE_ID(bool, std::ptrdiff_t, bool_std_ptrdiff,
     hpx::actions::base_lco_with_value_std_bool_ptrdiff_get,
     hpx::actions::base_lco_with_value_std_bool_ptrdiff_set)
+
 #endif

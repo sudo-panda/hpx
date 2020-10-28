@@ -8,10 +8,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <hpx/config.hpp>
+
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
 #include <hpx/assert.hpp>
 #include <hpx/components_base/pinned_ptr.hpp>
-#include <hpx/runtime/actions/continuation.hpp>
 #include <hpx/runtime/agas/interface.hpp>
 #include <hpx/runtime/components/stubs/runtime_support.hpp>
 #include <hpx/runtime/naming/resolver_client.hpp>
@@ -561,4 +561,5 @@ symbol_namespace::iterate_names_return_type find_symbols(
 }
 
 }}
+
 #endif

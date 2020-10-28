@@ -7,6 +7,7 @@
 #pragma once
 
 #include <hpx/config.hpp>
+
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
 #include <hpx/actions_base/traits/extract_action.hpp>
 
@@ -15,10 +16,7 @@ namespace hpx { namespace traits {
     ///////////////////////////////////////////////////////////////////////////
     // Trait to determine the continuation type for an action
     template <typename Action, typename Enable = void>
-    struct action_continuation
-    {
-        using type = typename hpx::traits::extract_action<
-            Action>::type::continuation_type;
-    };
+    struct action_continuation;
 }}    // namespace hpx::traits
+
 #endif

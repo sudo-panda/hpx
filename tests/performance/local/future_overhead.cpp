@@ -9,8 +9,8 @@
 #include <hpx/config.hpp>
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
 #if defined(HPX_HAVE_DISTRIBUTED_RUNTIME)
+#include <hpx/actions/continuation.hpp>
 #include <hpx/actions_base/plain_action.hpp>
-#include <hpx/runtime/actions/continuation.hpp>
 #endif
 #include <hpx/async_combinators/wait_each.hpp>
 #include <hpx/execution_base/this_thread.hpp>

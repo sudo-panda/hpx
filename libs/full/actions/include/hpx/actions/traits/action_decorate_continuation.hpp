@@ -9,6 +9,8 @@
 #include <hpx/config.hpp>
 
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
+#include <hpx/actions/continuation_fwd.hpp>
+#include <hpx/actions/traits/action_continuation.hpp>
 #include <hpx/actions_base/continuation_fwd.hpp>
 #include <hpx/actions_base/traits/action_continuation.hpp>
 
