@@ -11,7 +11,6 @@
 
 #if !defined(HPX_COMPUTE_DEVICE_CODE)
 #include <hpx/actions/continuation_fwd.hpp>
-#include <hpx/actions_base/continuation_fwd.hpp>
 #include <hpx/functional/detail/invoke.hpp>
 #include <hpx/type_support/unused.hpp>
 
