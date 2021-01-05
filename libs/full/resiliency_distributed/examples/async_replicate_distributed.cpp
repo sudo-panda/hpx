@@ -24,7 +24,9 @@ int universal_ans(std::vector<hpx::id_type> f_locales, std::size_t size)
     // Pretending to do some useful work
     std::size_t start = hpx::util::high_resolution_clock::now();
 
-    while ((hpx::util::high_resolution_clock::now() - start) < (size * 1e3)) {}
+    while ((hpx::util::high_resolution_clock::now() - start) < (size * 1e3))
+    {
+    }
 
     // Check if the node is faulty
     for (const auto& locale : f_locales)
@@ -80,7 +82,7 @@ int hpx_main(hpx::program_options::variables_map& vm)
     }
 
     {
-        hpx::util::high_resolution_timer t;
+        hpx::chrono::high_resolution_timer t;
 
         std::vector<hpx::future<int>> tasks;
         for (std::size_t i = 0; i < num_tasks; ++i)
@@ -101,7 +103,7 @@ int hpx_main(hpx::program_options::variables_map& vm)
     }
 
     {
-        hpx::util::high_resolution_timer t;
+        hpx::chrono::high_resolution_timer t;
 
         std::vector<hpx::future<int>> tasks;
         for (std::size_t i = 0; i < num_tasks; ++i)
@@ -123,7 +125,7 @@ int hpx_main(hpx::program_options::variables_map& vm)
     }
 
     {
-        hpx::util::high_resolution_timer t;
+        hpx::chrono::high_resolution_timer t;
 
         std::vector<hpx::future<int>> tasks;
         for (std::size_t i = 0; i < num_tasks; ++i)
@@ -144,7 +146,7 @@ int hpx_main(hpx::program_options::variables_map& vm)
     }
 
     {
-        hpx::util::high_resolution_timer t;
+        hpx::chrono::high_resolution_timer t;
 
         std::vector<hpx::future<int>> tasks;
         for (std::size_t i = 0; i < num_tasks; ++i)
@@ -173,16 +175,23 @@ int main(int argc, char* argv[])
     // Configure application-specific options
     hpx::program_options::options_description desc_commandline;
 
-    desc_commandline.add_options()("f-nodes",
-        hpx::program_options::value<std::size_t>()->default_value(1),
-        "Number of faulty nodes to be injected")("size",
-        hpx::program_options::value<std::size_t>()->default_value(200),
-        "Grain size of a task")("num-tasks",
-        hpx::program_options::value<std::size_t>()->default_value(1000000),
-        "Number of tasks to invoke")("num-replications",
-        hpx::program_options::value<std::size_t>()->default_value(3),
-        "Total number of replicates for a task (including the task itself)");
+    namespace po = hpx::program_options;
+
+    // clang-format off
+    desc_commandline.add_options()
+        ("f-nodes", po::value<std::size_t>()->default_value(1),
+            "Number of faulty nodes to be injected")
+        ("size", po::value<std::size_t>()->default_value(200),
+            "Grain size of a task")
+        ("num-tasks", po::value<std::size_t>()->default_value(1000000),
+            "Number of tasks to invoke")
+        ("num-replications", po::value<std::size_t>()->default_value(3),
+            "Total number of replicates for a task (including the task itself)")
+    ;
+    // clang-format on
 
     // Initialize and run HPX
-    return hpx::init(desc_commandline, argc, argv);
+    hpx::init_params params;
+    params.desc_cmdline = desc_commandline;
+    return hpx::init(argc, argv, params);
 }

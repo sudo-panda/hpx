@@ -22,8 +22,6 @@
 #include <random>
 #include <vector>
 
-
-
 int universal_ans(
     std::vector<hpx::id_type> f_locales, std::size_t err, std::size_t size)
 {

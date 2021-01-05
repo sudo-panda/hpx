@@ -23,16 +23,18 @@
 
 int universal_ans(std::vector<hpx::id_type> f_locales, std::size_t size)
 {
-    std::vector<hpx::future<int> > local_tasks;
+    std::vector<hpx::future<int>> local_tasks;
 
     for (std::size_t i = 0; i < 192; ++i)
     {
-        local_tasks.push_back(hpx::async([size](){
+        local_tasks.push_back(hpx::async([size]() {
             // Pretending to do some useful work
             std::size_t start = hpx::util::high_resolution_clock::now();
 
             while ((hpx::util::high_resolution_clock::now() - start) <
-                    (size * 1e3)) {}
+                (size * 1e3))
+            {
+            }
 
             return 42;
         }));
@@ -44,7 +46,6 @@ int universal_ans(std::vector<hpx::id_type> f_locales, std::size_t size)
 }
 
 HPX_PLAIN_ACTION(universal_ans, universal_action);
-
 
 int hpx_main(hpx::program_options::variables_map& vm)
 {
